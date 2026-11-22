@@ -14,4 +14,13 @@ O projeto é uma organização com cinco repositórios (decisão D03/Δ01 do Des
 | [gcc188-front](https://github.com/gcc188-cooperativa/gcc188-front) | Interface web (React 19, Mantine 9) — reservado para a próxima sprint |
 | [gcc188-infra](https://github.com/gcc188-cooperativa/gcc188-infra) | Docker Compose, Caddy, backup, e2e e observabilidade |
 
+## Regras de uso do Git (tarefa #21)
+
+Valem para os cinco repositórios da organização e estão detalhadas no README de cada um e no [Design, cap. 3](https://github.com/gcc188-cooperativa/gcc188-docs/blob/master/Design/Design.pdf):
+
+- **Ramos:** `master` protegido; backend e front usam _Git Flow_ adaptado (`develop` + `feat/*`, `fix/*`, `docs/*`), enquanto `gcc188-api-contract`, `gcc188-infra` e `gcc188-docs` usam _trunk-based_ com ramos curtos. PR revisado, verificações obrigatórias e _squash merge_.
+- **Commits:** _Conventional Commits_ `tipo(escopo): descrição (RF-xxx-NN ou RNF-xx)`; o escopo segue a lista de `commitlint.config.cjs` de cada repositório. Ex.: `feat(contratos): aprovar contrato e gerar pagamentos (RF-CTR-04)`.
+- **Pastas:** requisitos, design e padrões em `gcc188-docs/{Requisitos,Design,Padrões Adotados}`; código, contrato e infraestrutura em seus respectivos repositórios. Artefatos gerados, cobertura, segredos e arquivos locais ficam fora do Git via `.gitignore`.
+- **Verificação:** ganchos `lefthook` (commitlint e, onde configurado, lint/testes locais) mais workflows de governança no CI; versões e _changelog_ por Release Please.
+
 Protótipo navegável das telas por perfil: <https://gcc188-cooperativa.github.io/gcc188-docs/>
