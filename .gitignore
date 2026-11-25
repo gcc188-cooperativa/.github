@@ -1,0 +1,12 @@
+# Ambiente local e segredos
+.env
+.env.*
+!.env.example
+
+# IDEs, logs e arquivos de SO
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
